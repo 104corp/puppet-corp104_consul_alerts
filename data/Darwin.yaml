@@ -1,0 +1,2 @@
+---
+corp104_consul_alerts::env_file_path: '/etc'

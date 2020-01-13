@@ -1,0 +1,23 @@
+---
+corp104_consul_alerts::package_name: 'consul-alerts'
+corp104_consul_alerts::version: '0.6.0'
+corp104_consul_alerts::package_ensure: 'installed'
+corp104_consul_alerts::install_method: 'url'
+corp104_consul_alerts::download_url: 'https://github.com/AcalephStorage/consul-alerts/archive/v0.6.0.zip'
+corp104_consul_alerts::download_extension: 'tar.gz'
+corp104_consul_alerts::http_proxy: ''
+corp104_consul_alerts::user: 'consul-alerts'
+corp104_consul_alerts::group: 'consul-alerts'
+corp104_consul_alerts::manage_user: true
+corp104_consul_alerts::extra_groups: []
+corp104_consul_alerts::manage_group: true
+corp104_consul_alerts::bin_dir: '/usr/local/bin'
+corp104_consul_alerts::init_style: '%{facts.service_provider}'
+corp104_consul_alerts::service_name: 'consul-alerts'
+corp104_consul_alerts::service_ensure: 'running'
+corp104_consul_alerts::service_enable: true
+corp104_consul_alerts::manage_service: true
+corp104_consul_alerts::restart_on_change: true
+corp104_consul_alerts::extra_options: ''
+#corp104_consul_alerts::env_file_path: '/etc/default'
+corp104_consul_alerts::arch: '%{facts.architecture}'
