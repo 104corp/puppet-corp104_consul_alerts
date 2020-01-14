@@ -43,6 +43,21 @@ group :development do
 end
 
 group :system_tests do
+  gem 'puppetlabs_spec_helper', '>= 2.14.0',                        :require => false
+  gem 'rspec-puppet-facts', '>= 1.9.5',                             :require => false
+  gem 'rspec-puppet-utils',                                         :require => false
+  gem 'puppet-lint-leading_zero-check',                             :require => false
+  gem 'puppet-lint-trailing_comma-check',                           :require => false
+  gem 'puppet-lint-version_comparison-check',                       :require => false
+  gem 'puppet-lint-classes_and_types_beginning_with_digits-check',  :require => false
+  gem 'puppet-lint-unquoted_string-check',                          :require => false
+  gem 'puppet-lint-variable_contains_upcase',                       :require => false
+  gem 'puppet-lint-absolute_classname-check', '>= 2.0.0',           :require => false
+  gem 'puppet-lint-topscope-variable-check',                        :require => false
+  gem 'puppet-lint-legacy_facts-check',                             :require => false
+  gem 'puppet-lint-anchor-check',                                   :require => false
+  gem 'metadata-json-lint',                                         :require => false
+  gem 'puppet-blacksmith', '< 5.0.0',                               :require => false, :platforms => "ruby"
   gem "puppet-module-posix-system-r#{minor_version}",                            :require => false, :platforms => "ruby"
   gem "puppet-module-win-system-r#{minor_version}",                              :require => false, :platforms => ["mswin", "mingw", "x64_mingw"]
   gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '>= 3')                  
