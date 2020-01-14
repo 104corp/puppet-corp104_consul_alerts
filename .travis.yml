@@ -3,7 +3,7 @@ cache: bundler
 before_install:
 - gem update --system
 #- gem update bundler
-#- gem install bundler -v '1.17.3'
+- gem install bundler -v '1.17.3'
 - bundle --version
 - rm -f Gemfile.lock
 script:
@@ -12,11 +12,11 @@ matrix:
   fast_finish: true
   include:
   - rvm: 2.3.4
-    env: CHECK=beaker PUPPET_INSTALL_TYPE=agent PUPPET_GEM_VERSION="~> 5.0" BEAKER_IS_PE=no BEAKER_PUPPET_COLLECTION=puppet5 BEAKER_setfile=docker/ubuntu-16.04 BEAKER_HYPERVISOR=docker BEAKER_debug=true
+    env: CHECK=beaker PUPPET_INSTALL_TYPE=agent PUPPET_GEM_VERSION="~> 5.0" BEAKER_IS_PE=no BEAKER_PUPPET_COLLECTION=puppet5 BEAKER_setfile=docker/ubuntu-1604-x64 BEAKER_HYPERVISOR=docker BEAKER_debug=true
     services: docker
     sudo: required
   - rvm: 2.3.4
-    env: CHECK=beaker PUPPET_INSTALL_TYPE=agent PUPPET_GEM_VERSION="~> 5.0" BEAKER_IS_PE=no BEAKER_PUPPET_COLLECTION=puppet5 BEAKER_setfile=docker/centos-6 BEAKER_HYPERVISOR=docker BEAKER_debug=true
+    env: CHECK=beaker PUPPET_INSTALL_TYPE=agent PUPPET_GEM_VERSION="~> 5.0" BEAKER_IS_PE=no BEAKER_PUPPET_COLLECTION=puppet5 BEAKER_setfile=docker/centos-6-x64 BEAKER_HYPERVISOR=docker BEAKER_debug=true
     services: docker
     sudo: required
   - rvm: 2.3.4
