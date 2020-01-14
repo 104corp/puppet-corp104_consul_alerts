@@ -43,32 +43,34 @@ group :development do
 end
 
 group :system_tests do
-  gem 'puppetlabs_spec_helper', '>= 2.14.0',                        :require => false
-  gem 'rspec-puppet-facts', '>= 1.9.5',                             :require => false
-  gem 'rspec-puppet-utils',                                         :require => false
-  gem 'puppet-lint-leading_zero-check',                             :require => false
-  gem 'puppet-lint-trailing_comma-check',                           :require => false
-  gem 'puppet-lint-version_comparison-check',                       :require => false
-  gem 'puppet-lint-classes_and_types_beginning_with_digits-check',  :require => false
-  gem 'puppet-lint-unquoted_string-check',                          :require => false
-  gem 'puppet-lint-variable_contains_upcase',                       :require => false
-  gem 'puppet-lint-absolute_classname-check', '>= 2.0.0',           :require => false
-  gem 'puppet-lint-topscope-variable-check',                        :require => false
-  gem 'puppet-lint-legacy_facts-check',                             :require => false
-  gem 'puppet-lint-anchor-check',                                   :require => false
-  gem 'metadata-json-lint',                                         :require => false
-  gem 'puppet-blacksmith', '< 5.0.0',                               :require => false, :platforms => "ruby"
-  gem "puppet-module-posix-system-r#{minor_version}",                            :require => false, :platforms => "ruby"
-  gem "puppet-module-win-system-r#{minor_version}",                              :require => false, :platforms => ["mswin", "mingw", "x64_mingw"]
-  gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '>= 3')                  
-  gem "beaker-pe",                                                               :require => false
-  gem "beaker-rspec", *location_for(ENV['BEAKER_RSPEC_VERSION'])                
-  gem "beaker-hostgenerator", *location_for(ENV['BEAKER_HOSTGENERATOR_VERSION'])
-  gem "beaker-abs", *location_for(ENV['BEAKER_ABS_VERSION'] || '~> 0.1')        
+  gem 'winrm',                              :require => false
+  if beaker_version = ENV['BEAKER_VERSION']
+    gem 'beaker', *location_for(beaker_version)
+  else
+    gem 'beaker', '>= 4.2.0', :require => false
+  end
+  if beaker_rspec_version = ENV['BEAKER_RSPEC_VERSION']
+    gem 'beaker-rspec', *location_for(beaker_rspec_version)
+  else
+    gem 'beaker-rspec',  :require => false
+  end
+  gem 'serverspec',                         :require => false
+  gem 'beaker-hostgenerator', '>= 1.1.22',  :require => false
+  gem 'beaker-docker',                      :require => false
+  gem 'beaker-puppet',                      :require => false
+  gem 'beaker-puppet_install_helper',       :require => false
+  gem 'beaker-module_install_helper', :require => false
+
+  #gem "puppet-module-posix-system-r#{minor_version}",                            :require => false, :platforms => "ruby"
+  #gem "puppet-module-win-system-r#{minor_version}",                              :require => false, :platforms => ["mswin", "mingw", "x64_mingw"]
+  #gem "beaker", *location_for(ENV['BEAKER_VERSION'] || '>= 3')                  
+  #gem "beaker-pe",                                                               :require => false
+  #gem "beaker-rspec", *location_for(ENV['BEAKER_RSPEC_VERSION'])                
+  #gem "beaker-hostgenerator", *location_for(ENV['BEAKER_HOSTGENERATOR_VERSION'])
+  #gem "beaker-abs", *location_for(ENV['BEAKER_ABS_VERSION'] || '~> 0.1')        
 end
 
 gem 'puppet', *location_for(ENV['PUPPET_GEM_VERSION'])
-gem 'librarian-puppet'
 
 # Only explicitly specify Facter/Hiera if a version has been specified.
 # Otherwise it can lead to strange bundler behavior. If you are seeing weird
@@ -89,3 +91,4 @@ if File.exists?(File.join(Dir.home, '.gemfile'))
 end
 
 # vim:ft=ruby
+
