@@ -24,26 +24,26 @@ class corp104_consul_alerts::service (
     default => undef,
   }
 
-  $options = "${extra_options}"
+  $options = $extra_options
 
   # Default Environment variables 
   $env_vars = {}
-  
+
   $real_env_vars = merge($env_vars, $extra_env_vars)
 
   corp104_consul_alerts::daemon { $service_name:
-    notify_service     => $notify_service,
-    user               => $user,
-    group              => $group,
-    manage_user        => $manage_user,
-    extra_groups       => $extra_groups,
-    manage_group       => $manage_group,
-    bin_dir            => $bin_dir,
-    init_style         => $init_style,
-    service_ensure     => $service_ensure,
-    service_enable     => $service_enable,
-    manage_service     => $manage_service,
-    options            => $options,
-    env_vars           => $real_env_vars,
+    notify_service => $notify_service,
+    user           => $user,
+    group          => $group,
+    manage_user    => $manage_user,
+    extra_groups   => $extra_groups,
+    manage_group   => $manage_group,
+    bin_dir        => $bin_dir,
+    init_style     => $init_style,
+    service_ensure => $service_ensure,
+    service_enable => $service_enable,
+    manage_service => $manage_service,
+    options        => $options,
+    env_vars       => $real_env_vars,
   }
 }

@@ -34,7 +34,7 @@ class corp104_consul_alerts::install (
         source          => $download_url,
         creates         => "${install_dir}/${package_name}",
         extract         => true,
-        extract_path    => "${install_dir}",
+        extract_path    => $install_dir,
         proxy_server    => $proxy_server,
         checksum_verify => false,
         cleanup         => true,
