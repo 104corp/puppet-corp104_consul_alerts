@@ -1,5 +1,5 @@
 {
-  "name": "corp104_consul_alerts",
+  "name": "corp104-consul_alerts",
   "description": "corp104_consul_alerts Module for Debian and Ubuntu.",
   "version": "0.0.2",
   "author": "104corp",
