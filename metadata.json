@@ -1,7 +1,7 @@
 {
   "name": "corp104-consul_alerts",
   "description": "corp104_consul_alerts Module for Debian and Ubuntu.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "104corp",
   "summary": "Install, deploysm, and configures corp104_consul_alerts.",
   "license": "Apache-2.0",
